@@ -6,7 +6,8 @@ export function middleware(request: NextRequest) {
 
   if (Math.random() > 0.5) {
     // Pretend specific preview scenario was identified, and we want to a certain redirect...
-    return NextResponse.redirect("https://google.com/", 307)
+    // return NextResponse.redirect("https://google.com/", 307)
+    return NextResponse.redirect(new URL("https://google.com/", request.url))
   }
 
   return NextResponse.next();
